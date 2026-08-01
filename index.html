@@ -1,1 +1,312 @@
-# GO Git
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelodge | Great Value Hotels</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-blue: #0033a0;
+            --accent-red: #d32029;
+            --light-bg: #f4f5f7;
+            --dark-text: #333333;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-red);
+        }
+
+        .login-btn {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #002277;
+            color: var(--white);
+        }
+
+        /* Hero Section & Search Widget */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 160, 0.7), rgba(0, 51, 160, 0.7)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding: 100px 20px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .search-widget {
+            background-color: var(--white);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .input-group {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-text);
+        }
+
+        .input-group input, .input-group select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .search-btn {
+            background-color: var(--accent-red);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 24px;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: #b51a22;
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide on mobile for simplicity */
+            }
+            .search-widget {
+                flex-direction: column;
+            }
+            .search-btn {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Travelodge<span>.</span></div>
+            <nav class="nav-links">
+                <a href="#">Destinations</a>
+                <a href="#">Deals</a>
+                <a href="#">Business</a>
+                <a href="#">Manage Booking</a>
+            </nav>
+            <a href="#" class="login-btn">Log in / Sign up</a>
+        </div>
+    </header>
+
+    <!-- Hero & Search -->
+    <section class="hero">
+        <h1>Find your perfect stay</h1>
+        <p>Great value hotels across the UK and Ireland</p>
+        
+        <div class="search-widget">
+            <div class="input-group">
+                <label for="location">Location or Hotel</label>
+                <input type="text" id="location" placeholder="e.g. London, Manchester">
+            </div>
+            
+            <div class="input-group">
+                <label for="checkin">Check-in</label>
+                <input type="date" id="checkin">
+            </div>
+            
+            <div class="input-group">
+                <label for="checkout">Check-out</label>
+                <input type="date" id="checkout">
+            </div>
+            
+            <div class="input-group">
+                <label for="guests">Rooms & Guests</label>
+                <select id="guests">
+                    <option>1 Room, 1 Adult</option>
+                    <option selected>1 Room, 2 Adults</option>
+                    <option>2 Rooms, 4 Adults</option>
+                    <option>Family (2 Adults, 2 Kids)</option>
+                </select>
+            </div>
+            
+            <button class="search-btn">Search</button>
+        </div>
+    </section>
+
+    <!-- Promotional Features -->
+    <section class="features">
+        <div class="feature-card">
+            <h3>SuperRooms™</h3>
+            <p>Upgrade to a SuperRoom™ for extra comfort. Features include a Lavazza coffee machine, Hansgrohe shower, and a choice of firm or soft pillows.</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>Unlimited Breakfast</h3>
+            <p>Start your day right with our unlimited breakfast. Kids eat free! Enjoy a selection of cooked and continental options.</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>Travelodge Business</h3>
+            <p>Join Travelodge Business for exclusive benefits, including 5% off all flexible rate bookings, guaranteed late checkout, and more.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+        <p>&copy; 2026 Travelodge Hotels Limited. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
